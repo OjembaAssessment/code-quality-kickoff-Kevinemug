@@ -4,8 +4,9 @@ export default function isValidPassword(password = "") {
   if (typeof password !== "string") password = String(password);
 
   if (password.length !== 10) return false;
+  //check if password has special characters
   if (!/^[0-9a-zA-Z]+$/.test(password)) return false;
-  
+  //check if password has no consecutive numbers and is made of lower case and upper case
   if (!(/[0-9]/.test(password) && /[a-zA-Z]/.test(password))) return false;
   
   if (password === password.toLowerCase() || password === password.toUpperCase()) return false;
