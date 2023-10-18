@@ -26,7 +26,6 @@ function solution(roman) {
       D: 500,
       M: 1000,
     };
-  
     return roman
       .split('')
       .reduceRight((result, currentSymbol, index, arr) => {
