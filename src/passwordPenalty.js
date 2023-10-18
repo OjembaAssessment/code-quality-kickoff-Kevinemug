@@ -1,27 +1,15 @@
 export default function penaltyPoints(password = "") {
-  if (!password || typeof password !== "string") return 0; 
+  if (typeof password !== "string") password = String(password);
+  if (password.length < 10) return 0;
 
-  let penalty = 0;
-  let count = 1;
+  //This regex captures the character and checks if it occurs more than two times conseutively
 
-  for (let i = 1; i < password.length; i++) {
-    if (password[i] === password[i - 1]) {
-      count++;
-    } else {
-      if (count >= 3) {
-        penalty += 2;
-      } else if (count === 2) {
-        penalty += 1;
-      }
-      count = 1;
-    }
-  }
+  const regex = /([a-zA-Z0-9])(\1{2,}|\1)/g;
+  const matches = password.match(regex);
 
-  if (count >= 3) {
-    penalty += 2;
-  } else if (count === 2) {
-    penalty += 1;
-  }
-
-  return penalty;
+  const penaltyPoints = matches?.reduce((points, match) => {
+    if (match.length > 2) return points + 2;
+    return points + 1;
+  }, 0);
+  return penaltyPoints || 0
 }
