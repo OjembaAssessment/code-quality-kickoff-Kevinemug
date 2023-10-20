@@ -10,4 +10,4 @@
 const numberFormat =  (number) => {
     return number.toLocaleString();
   };
-  console.log(numberFormat(2000000000))
+  
