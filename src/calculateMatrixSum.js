@@ -1,4 +1,4 @@
 function calculateMatrixSum(matrix){
-    return matrix.flat().reduce((accumulator,row) => accumulator + row,0)
+    return matrix.flat(Infinity).reduce((accumulator,row) => accumulator + row,0)
 
 }
