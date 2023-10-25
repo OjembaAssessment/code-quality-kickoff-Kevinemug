@@ -8,7 +8,7 @@ const getNestingLevel = (arr, beginLevel = 0) => {
   return endLevel;
 };
 
-const flattenArray = (arr) => {
-  return arr.flat(Infinity);
-};
+const flattenArray = arr =>  arr.flat(Infinity);
+
+
 
