@@ -1,7 +1,8 @@
-const isPrime = (num, divisor = 2) => {
-    if (num <= 1) return false;
+const isPrime = num => {
+    if (num < 2) return false;
     if (num === 2) return true;
-    if (num % divisor === 0) return false;
-    if (divisor * divisor > num) return true;
-    return isPrime(num, divisor + 1);
-};
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) return false;
+    }
+    return true;
+  }
